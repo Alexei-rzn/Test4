@@ -1,0 +1,100 @@
+body {
+    background-color: #8cceff; /* Цвет фона */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.game-container, .victory-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-container, .balance-container {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #2980b9;
+}
+```
+
+### 5. css/buttons.css
+```css
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.action-button {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
+}
+
+.action-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.action-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.small-button {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
+}
+
+.small-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.small-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
