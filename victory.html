@@ -17,31 +17,17 @@
             text-align: center;
             border: 1px solid #ddd;
         }
+        th {
+            background-color: #00796b; /* Цвет шапки таблицы */
+            color: white;
+        }
     </style>
 </head>
 <body>
     <div class="victory-container">
         <h2>Турнирная таблица</h2>
         <table id="leaderboard">
-            <tr>
-                <th>Имя</th>
-                <th>Счёт</th>
-                <th>Дата</th>
-                <th>Макс. плитка</th>
-                <th>Уровень сложности</th>
-                <th>Доп. кнопки</th>
-            </tr>
-            <!-- Данные будут динамически добавлены через JavaScript -->
-        </table>
-        <button id="back-button" class="back-button">Назад к игре</button>
-    </div>
-
-    <script>
-        // Загрузка таблицы лидеров (например, из локального хранилища)
-        function loadLeaderboard() {
-            const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
-            const leaderboardTable = document.getElementById('leaderboard');
-            leaderboardTable.innerHTML = `
+            <thead>
                 <tr>
                     <th>Имя</th>
                     <th>Счёт</th>
@@ -50,9 +36,28 @@
                     <th>Уровень сложности</th>
                     <th>Доп. кнопки</th>
                 </tr>
-            `;
+            </thead>
+            <tbody>
+                <!-- Данные будут динамически добавлены через JavaScript -->
+            </tbody>
+        </table>
+        <button id="back-button" class="back-button">Назад к игре</button>
+    </div>
+
+    <script>
+        // Загрузка таблицы лидеров (например, из локального хранилища)
+        function loadLeaderboard() {
+            const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+            const leaderboardTable = document.getElementById('leaderboard').querySelector('tbody');
+            leaderboardTable.innerHTML = '';
+            const today = new Date().toDateString();
+
             // Фильтруем по дате и плитке 2048
-            leaderboard.sort((a, b) => b.score - a.score).forEach(entry => {
+            const filteredLeaderboard = leaderboard.filter(entry => 
+                entry.tile === 2048 || new Date(entry.date).toDateString() === today
+            );
+
+            filteredLeaderboard.sort((a, b) => b.score - a.score).forEach(entry => {
                 const row = document.createElement('tr');
                 row.innerHTML = `<td>${entry.name}</td><td>${entry.score}</td><td>${entry.date}</td><td>${entry.tile}</td><td>${entry.difficulty}</td><td>${entry.additionalClicks}</td>`;
                 leaderboardTable.appendChild(row);
