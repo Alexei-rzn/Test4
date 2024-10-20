@@ -1,5 +1,5 @@
 body {
-    background-color: #e7f0f8; /* Цвет фона */
+    background-color: #f0f4f8; /* Более мягкий цвет фона */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,17 +45,17 @@ body {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.tile-2 { background-color: #cce6ff; }
-.tile-4 { background-color: #99ccff; }
-.tile-8 { background-color: #66b3ff; }
-.tile-16 { background-color: #3399ff; }
-.tile-32 { background-color: #0080ff; }
-.tile-64 { background-color: #0077cc; }
-.tile-128 { background-color: #0066b3; }
-.tile-256 { background-color: #005599; }
-.tile-512 { background-color: #004488; }
-.tile-1024 { background-color: #003366; }
-.tile-2048 { background-color: #002244; }
+.tile-2 { background-color: #e0f7fa; }
+.tile-4 { background-color: #b2ebf2; }
+.tile-8 { background-color: #80deea; }
+.tile-16 { background-color: #4dd0e1; }
+.tile-32 { background-color: #26c6da; }
+.tile-64 { background-color: #00bcd4; }
+.tile-128 { background-color: #00acc1; }
+.tile-256 { background-color: #0097a7; }
+.tile-512 { background-color: #00838f; }
+.tile-1024 { background-color: #00796b; }
+.tile-2048 { background-color: #00695c; }
 
 .game-over {
     font-size: 24px;
@@ -79,7 +79,7 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #3498db;
+    background-color: #00796b;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
@@ -108,7 +108,7 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #3498db;
+    background-color: #00796b;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
@@ -150,7 +150,7 @@ body {
 .back-button {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #00796b;
     color: white;
     border: none;
     border-radius: 5px;
@@ -159,7 +159,7 @@ body {
 }
 
 .back-button:hover {
-    background-color: #2980b9;
+    background-color: #004d40;
 }
 
 @media (max-width: 600px) {
