@@ -110,6 +110,11 @@ ratingButton.addEventListener("click", () => {
     window.location.href = "victory.html"; // Переход на страницу таблицы лидеров
 });
 
+// Переход на страницу правил
+rulesButton.addEventListener("click", () => {
+    window.location.href = "rules.html"; // Переход на страницу правил
+});
+
 // Управление звуком
 soundButton.addEventListener("click", () => {
     game.soundEnabled = !game.soundEnabled; // Переключаем состояние звука
