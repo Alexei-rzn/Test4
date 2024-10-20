@@ -52,8 +52,7 @@
                 </tr>
             `;
             // Фильтруем по дате и плитке 2048
-            leaderboard.filter(entry => entry.tile === 2048 || new Date(entry.date).toDateString() === new Date().toDateString())
-            .sort((a, b) => b.score - a.score).forEach(entry => {
+            leaderboard.sort((a, b) => b.score - a.score).forEach(entry => {
                 const row = document.createElement('tr');
                 row.innerHTML = `<td>${entry.name}</td><td>${entry.score}</td><td>${entry.date}</td><td>${entry.tile}</td><td>${entry.difficulty}</td><td>${entry.additionalClicks}</td>`;
                 leaderboardTable.appendChild(row);
