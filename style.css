@@ -45,17 +45,17 @@ body {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.tile-2 { background-color: #e0f7fa; }
-.tile-4 { background-color: #b2ebf2; }
-.tile-8 { background-color: #80deea; }
-.tile-16 { background-color: #4dd0e1; }
-.tile-32 { background-color: #26c6da; }
-.tile-64 { background-color: #00bcd4; }
-.tile-128 { background-color: #00acc1; }
-.tile-256 { background-color: #0097a7; }
-.tile-512 { background-color: #00838f; }
-.tile-1024 { background-color: #00796b; }
-.tile-2048 { background-color: #00695c; }
+.tile-2 { background-color: #ffccbc; }
+.tile-4 { background-color: #ffab91; }
+.tile-8 { background-color: #ff8a65; }
+.tile-16 { background-color: #ff7043; }
+.tile-32 { background-color: #ff5722; }
+.tile-64 { background-color: #f4511e; }
+.tile-128 { background-color: #e64a19; }
+.tile-256 { background-color: #d84315; }
+.tile-512 { background-color: #bf360c; }
+.tile-1024 { background-color: #c62828; }
+.tile-2048 { background-color: #b71c1c; }
 
 .game-over {
     font-size: 24px;
@@ -144,7 +144,8 @@ body {
 }
 
 .victory-container th {
-    background-color: #f2f2f2;
+    background-color: #00796b; /* Цвет шапки таблицы */
+    color: white;
 }
 
 .back-button {
