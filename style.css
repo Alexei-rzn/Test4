@@ -1,5 +1,5 @@
 body {
-    background-color: #8cceff; /* Цвет фона */
+    background-color: #a1c4fd; /* Цвет фона */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,8 +20,126 @@ body {
     margin-bottom: 10px;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.tile {
+    width: 80px; /* Ширина плитки */
+    height: 80px; /* Высота плитки */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.tile-2 { background-color: #ffe0b2; }
+.tile-4 { background-color: #ffcc80; }
+.tile-8 { background-color: #ffb74d; }
+.tile-16 { background-color: #ffa726; }
+.tile-32 { background-color: #ff9800; }
+.tile-64 { background-color: #fb8c00; }
+.tile-128 { background-color: #f57c00; }
+.tile-256 { background-color: #ef6c00; }
+.tile-512 { background-color: #e65100; }
+.tile-1024 { background-color: #bf360c; }
+.tile-2048 { background-color: #b71c1c; }
+
+.game-over {
+    font-size: 24px;
+    color: red;
+    margin-top: 20px;
+}
+
 .hidden {
     display: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.action-button {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
+}
+
+.action-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.action-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.small-button {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
+}
+
+.small-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.small-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.victory-container {
+    text-align: center;
+}
+
+.victory-container h2 {
+    margin-bottom: 20px;
+}
+
+.victory-container table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 90%; /* Устанавливаем ширину таблицы на 90% */
+}
+
+.victory-container th, .victory-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.victory-container th {
+    background-color: #f2f2f2;
 }
 
 .back-button {
@@ -37,4 +155,17 @@ body {
 
 .back-button:hover {
     background-color: #2980b9;
+}
+
+@media (max-width: 600px) {
+    .tile {
+        height: 70px; /* Уменьшаем высоту плитки на мобильных устройствах */
+        width: 70px; /* Уменьшаем ширину плитки на мобильных устройствах */
+        font-size: 24px; /* Уменьшаем размер шрифта */
+    }
+
+    .action-button, .small-button {
+        width: 60px; /* Уменьшаем ширину кнопок на мобильных устройствах */
+        height: 60px; /* Уменьшаем высоту кнопок на мобильных устройствах */
+    }
 }
