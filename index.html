@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Игра 2048 - объединяйте плитки и достигайте 2048!">
     <title>2048 - Игра</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/buttons.css">
-    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -27,21 +25,20 @@
             <button id="shuffle" class="action-button"><img src="shuffle.png" alt="Shuffle"></button>
             <button id="add-funds" class="action-button"><img src="add-funds.png" alt="Add Funds"></button>
             <button id="difficulty" class="action-button">1</button>
+            <button id="mode" class="action-button">Режим: Обычный</button>
         </div>
         <div class="top-buttons">
             <button id="restart" class="small-button"><img src="restart.png" alt="Restart"></button>
             <button id="sound" class="small-button"><img id="sound-icon" src="sound-on.png" alt="Sound"></button>
             <button id="rules" class="small-button"><img src="rules.png" alt="Rules"></button>
-            <button id="share" class="small-button"><img src="share.png" alt="Share"></button>
-            <button id="rating" class="small-button"><img src="rating.png" alt="Rating"></button>
+            <button id="rating" class="small-button"><img id="rating.png" alt="Rating"></button>
         </div>
     </div>
     <audio id="move-sound" src="move.mp3" preload="auto"></audio>
     <audio id="merge-sound" src="merge.mp3" preload="auto"></audio>
     <audio id="game-over-sound" src="game-over.mp3" preload="auto"></audio>
 
-    <script src="js/utils.js"></script>
-    <script src="js/game.js"></script>
-    <script src="js/controls.js"></script>
+    <script type="module" src="game.js"></script>
+    <script type="module" src="controls.js"></script>
 </body>
 </html>
