@@ -56,7 +56,7 @@ class Game2048 {
     updateBackgroundColor() {
         const bodyStyle = document.body.style;
         const hue = this.maxTile * 10; // Цвет фона на основе максимальной плитки
-        bodyStyle.backgroundColor = `hsl(${hue}, 60%, 80%)`;
+        bodyStyle.backgroundColor = `hsl(${hue}, 60%, 90%)`; // Более светлый цвет
     }
 
     // Обновление отображения плиток на экране
