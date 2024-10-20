@@ -1,9 +1,23 @@
-import { Game2048 } from './game2048.js';
+const undoButton = document.getElementById("undo");
+const deleteTileButton = document.getElementById("delete");
+const shuffleButton = document.getElementById("shuffle");
+const addFundsButton = document.getElementById("add-funds");
+const restartButton = document.getElementById("restart");
+const rulesButton = document.getElementById("rules");
+const ratingButton = document.getElementById("rating");
+const soundButton = document.getElementById("sound");
+const soundIcon = document.getElementById("sound-icon");
+const submitScoreButton = document.getElementById("submit-score");
+const gameOverDisplay = document.getElementById("game-over");
+const playerNameInput = document.getElementById("player-name");
+const difficultyButton = document.getElementById("difficulty");
 
-const game = new Game2048();
+// Инициализация текущего уровня сложности
+let currentDifficulty = 0;
+difficultyButton.innerText = currentDifficulty + 1; // Устанавливаем текст кнопки
 
 // Ход назад
-document.getElementById("undo").addEventListener("click", () => {
+undoButton.addEventListener("click", () => {
     if (game.history.length > 0 && game.balance >= 30) {
         game.grid = game.history.pop();  // Восстанавливаем последнее состояние
         game.balance -= 30;  // Списываем 30 баллов
@@ -33,6 +47,16 @@ function deleteTile() {
     }
 }
 
+// Показать и скрыть режим удаления плиток
+deleteTileButton.addEventListener("mousedown", () => {
+    deleteTileButton.classList.add("active");
+    deleteTile();
+});
+
+deleteTileButton.addEventListener("mouseup", () => {
+    deleteTileButton.classList.remove("active");
+});
+
 // Логика получения индекса плитки
 function getTileIndex(tile) {
     const index = Array.from(tile.parentNode.children).indexOf(tile);
@@ -42,7 +66,7 @@ function getTileIndex(tile) {
 }
 
 // Перемешивание плиток
-document.getElementById("shuffle").addEventListener("click", () => {
+shuffleButton.addEventListener("click", () => {
     if (game.balance >= 20) {
         shuffleTiles();
         game.balance -= 20;
@@ -62,42 +86,42 @@ function shuffleTiles() {
 }
 
 // Пополнение баланса
-document.getElementById("add-funds").addEventListener("click", () => {
+addFundsButton.addEventListener("click", () => {
     game.balance += 50;
     game.additionalClicks++; // Увеличиваем счетчик нажатий
     game.updateGrid(); // Обновление интерфейса
 });
 
 // Уровень сложности
-document.getElementById("difficulty").addEventListener("click", () => {
+difficultyButton.addEventListener("click", () => {
     currentDifficulty = (currentDifficulty + 1) % 5; // Циклический переход по уровням
-    document.getElementById("difficulty").innerText = currentDifficulty + 1; // Обновляем текст кнопки
+    difficultyButton.innerText = currentDifficulty + 1; // Обновляем текст кнопки
     game.setDifficulty(currentDifficulty); // Устанавливаем уровень сложности
 });
 
 // Перезапуск игры
-document.getElementById("restart").addEventListener("click", () => {
+restartButton.addEventListener("click", () => {
     gameOverDisplay.classList.add("hidden");
     game.initGame(); // Инициализация новой игры
 });
 
 // Переход на страницу таблицы лидеров
-document.getElementById("rating").addEventListener("click", () => {
+ratingButton.addEventListener("click", () => {
     window.location.href = "victory.html"; // Переход на страницу таблицы лидеров
 });
 
 // Управление звуком
-document.getElementById("sound").addEventListener("click", () => {
+soundButton.addEventListener("click", () => {
     game.soundEnabled = !game.soundEnabled; // Переключаем состояние звука
-    document.getElementById("sound-icon").src = game.soundEnabled ? "sound-on.png" : "sound-off.png"; // Меняем иконку
+    soundIcon.src = game.soundEnabled ? "sound-on.png" : "sound-off.png"; // Меняем иконку
 });
 
 // Сохранение результата в таблицу лидеров
-document.getElementById("submit-score").addEventListener("click", () => {
-    const name = game.playerNameInput.value.trim();
+submitScoreButton.addEventListener("click", () => {
+    const name = playerNameInput.value.trim();
     if (name) {
-        game.saveToLeaderboard(name, document.getElementById("difficulty").innerText); // Сохраняем результат
-        game.playerNameInput.value = ''; // Очищаем поле ввода
+        game.saveToLeaderboard(name, difficultyButton.innerText); // Сохраняем результат
+        playerNameInput.value = ''; // Очищаем поле ввода
         gameOverDisplay.classList.add("hidden"); // Скрываем окно окончания игры
         game.initGame(); // Перезагрузка игры
     } else {
