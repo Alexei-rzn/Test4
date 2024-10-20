@@ -45,6 +45,7 @@ body {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+/* Цвета плиток */
 .tile-2 { background-color: #cce6ff; }
 .tile-4 { background-color: #99ccff; }
 .tile-8 { background-color: #66b3ff; }
@@ -56,6 +57,32 @@ body {
 .tile-512 { background-color: #004488; }
 .tile-1024 { background-color: #003366; }
 .tile-2048 { background-color: #002244; }
+
+.tile-enter {
+    animation: tile-enter 0.2s ease-out;
+}
+
+@keyframes tile-enter {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.tile-move {
+    animation: tile-move 0.2s ease-out;
+}
+
+@keyframes tile-move {
+    from {
+        transform: translate(0);
+    }
+    to {
+        transform: translate(var(--move-x), var(--move-y));
+    }
+}
 
 .game-over {
     font-size: 24px;
