@@ -1,5 +1,5 @@
 body {
-    background-color: #a1c4fd; /* Цвет фона */
+    background-color: #e7f0f8; /* Цвет фона */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,6 +12,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background-color: #ffffff;
 }
 
 .score-container, .balance-container {
@@ -24,6 +28,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    transition: transform 0.2s ease;
 }
 
 .tile {
@@ -40,17 +45,17 @@ body {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.tile-2 { background-color: #ffe0b2; }
-.tile-4 { background-color: #ffcc80; }
-.tile-8 { background-color: #ffb74d; }
-.tile-16 { background-color: #ffa726; }
-.tile-32 { background-color: #ff9800; }
-.tile-64 { background-color: #fb8c00; }
-.tile-128 { background-color: #f57c00; }
-.tile-256 { background-color: #ef6c00; }
-.tile-512 { background-color: #e65100; }
-.tile-1024 { background-color: #bf360c; }
-.tile-2048 { background-color: #b71c1c; }
+.tile-2 { background-color: #cce6ff; }
+.tile-4 { background-color: #99ccff; }
+.tile-8 { background-color: #66b3ff; }
+.tile-16 { background-color: #3399ff; }
+.tile-32 { background-color: #0080ff; }
+.tile-64 { background-color: #0077cc; }
+.tile-128 { background-color: #0066b3; }
+.tile-256 { background-color: #005599; }
+.tile-512 { background-color: #004488; }
+.tile-1024 { background-color: #003366; }
+.tile-2048 { background-color: #002244; }
 
 .game-over {
     font-size: 24px;
