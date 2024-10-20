@@ -128,3 +128,8 @@ submitScoreButton.addEventListener("click", () => {
         alert("Пожалуйста, введите ваше имя!");
     }
 });
+
+// Обработчик для перехода к правилам
+rulesButton.addEventListener("click", () => {
+    window.location.href = "rules.html"; // Переход на страницу правил
+});
