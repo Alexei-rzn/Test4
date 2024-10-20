@@ -49,20 +49,7 @@ class Game2048 {
             const { i, j } = emptyCells[Math.floor(Math.random() * emptyCells.length)];
             this.grid[i][j] = Math.random() < this.tileProbability[0] / 100 ? 2 : 4;
             this.saveState();
-            this.createTileAnimation(i, j);
         }
-    }
-
-    // Создание анимации появления плитки
-    createTileAnimation(i, j) {
-        const tileElement = document.createElement("div");
-        tileElement.classList.add("tile", `tile-${this.grid[i][j]}`, "tile-enter");
-        tileElement.innerText = this.grid[i][j];
-        tileElement.style.gridArea = `${i + 1} / ${j + 1} / ${i + 2} / ${j + 2}`;
-        this.gridContainer.appendChild(tileElement);
-        setTimeout(() => {
-            tileElement.classList.remove("tile-enter");
-        }, 200);
     }
 
     // Обновление фонового цвета
@@ -75,14 +62,15 @@ class Game2048 {
     // Обновление отображения плиток на экране
     updateGrid() {
         this.gridContainer.innerHTML = '';
-        this.grid.forEach((row, i) => {
-            row.forEach((tile, j) => {
+        this.grid.forEach(row => {
+            row.forEach(tile => {
                 const tileElement = document.createElement("div");
                 tileElement.classList.add("tile");
                 if (tile > 0) {
                     tileElement.classList.add(`tile-${tile}`);
                     tileElement.innerText = tile;
-                    tileElement.style.gridArea = `${i + 1} / ${j + 1} / ${i + 2} / ${j + 2}`;
+                } else {
+                    tileElement.innerText = '';
                 }
                 this.gridContainer.appendChild(tileElement);
             });
@@ -159,7 +147,10 @@ class Game2048 {
 
         if (moved || combined) {
             if (this.soundEnabled) this.moveSound.play();
-            this.updateGrid();
+            setTimeout(() => {
+                this.addNewTile();
+                this.updateGrid();
+            }, 200);
         }
     }
 
