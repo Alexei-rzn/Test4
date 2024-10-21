@@ -276,14 +276,22 @@ class Game2048 {
     // Сохранение результата в таблицу лидеров
     saveToLeaderboard(name, difficulty) {
         const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
-        leaderboard.push({
-            name,
-            score: this.score,
-            date: new Date().toLocaleString(),
-            tile: this.maxTile,
-            additionalClicks: this.additionalClicks,
-            difficulty
-        });
+        // Проверка, если игрок уже есть в таблице, обновляем его данные
+        const existingEntryIndex = leaderboard.findIndex(entry => entry.name === name && entry.tile === 2048);
+        if (existingEntryIndex > -1) {
+            leaderboard[existingEntryIndex].score = Math.max(leaderboard[existingEntryIndex].score, this.score);
+            leaderboard[existingEntryIndex].date = new Date().toLocaleString();
+            leaderboard[existingEntryIndex].additionalClicks += this.additionalClicks;
+        } else {
+            leaderboard.push({
+                name,
+                score: this.score,
+                date: new Date().toLocaleString(),
+                tile: this.maxTile,
+                additionalClicks: this.additionalClicks,
+                difficulty
+            });
+        }
         localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
     }
 
